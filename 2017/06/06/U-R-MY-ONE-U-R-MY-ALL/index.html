@@ -31,30 +31,38 @@
     <script type="text/javascript">
         $(function () {
             function init() {
-                var date = new Date();
-                var bir = new Date('1994-3-23');
-				var theDay=new Date('2017-6-6');
-                var y = date.getYear(), m = date.getMonth();
-                
-                var yy = bir.getYear(), mm = bir.getMonth();
-               
-			    var yyy=theDay.getYear(),mmm=theDay.getMonth();
-                var last = 12 * (yyy - yy) + mmm - mm;
-				var sumNow = 12 * (y - yyy) + m - mmm;
+                $('div#life_container').html('');
+				var date = new Date();
+				var theDay = new Date('2017-6-6');
+				var bir = mini.get('date_picker').getValue();
 				
-                var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>', ' <div class="life-item_ff"></div>'];
-                var index = 1;
-                for (var j = 0; j < 30; j++) {
-                    var row = ' <div class="clear">';
-                    for (var i = 0; i < 30; i++) {
-                        var item = index < sum ? items[0] : items[1];
-                        row += item;
-                        index++;
-                    }
-                    row += '</div>';
-                    $('div#life_container').append(row);
-                }
-
+				var yyy = date.getYear(), mmm = date.getMonth();
+			  
+				var yy = theDay.getYear(),mm=theDay.getMonth();
+			  
+				var y = bir.getYear(), m = bir.getMonth();
+				
+				var sum = 12 * (yy - y) + mm - m;
+				var sum2 = 12 * (yyy - y) + mmm - m;
+				var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+				var index = 1;
+				for (var j = 0; j < 30; j++) {
+					var row = ' <div class="clear">';
+					for (var i = 0; i < 30; i++) {
+						var item = index < sum ? items[0] : items[1];
+						if(index < sum){
+							item=items[0];
+						}else if(index <sum2){
+							item=items[1];
+						}else{
+							item=items[2];
+						}
+						row += item;
+						index++;
+					}
+					row += '</div>';
+					$('div#life_container').append(row);
+				}
             }
             init();
         });
