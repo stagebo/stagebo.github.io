@@ -30,9 +30,12 @@
 
     <script type="text/javascript">
         $(function () {
-            function init() {
+           
+            init();
+        });
+		 function init() {
                 $('div#life_container').html('');
-				var date = new Date('2020-6-6');
+				var date = new Date();
 				var theDay = new Date('2017-6-6');
 				var bir = new Date('1994-3-23');
 				
@@ -44,7 +47,8 @@
 				
 				var sum = 12 * (yy - y) + mm - m;
 				var sum2 = 12 * (yyy - y) + mmm - m;
-				var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>', ' <div class="life-item_ff"></div>'];
+				var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>', 
+				' <div class="life-item_ff"></div>'];
 				var index = 1;
 				for (var j = 0; j < 30; j++) {
 					var row = ' <div class="clear">';
@@ -64,9 +68,6 @@
 					$('div#life_container').append(row);
 				}
             }
-            init();
-        });
-
     </script>
     <style type="text/css">
 	   div.life-item_p {
@@ -159,25 +160,24 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      <div>
-                                    <div class="life-container" id="life_container">
-                                        <!--<div>
-                                            <div class="life-item"></div>
-                                            <div class="life-item"></div>
-                                            <div class="life-item"></div>
-                                        </div>
-                                        <div class="clear">
-                                            <div class="life-item"></div>
-                                            <div class="life-item"></div>
-                                            <div class="life-item"></div>
-                                        </div>-->
-                                    </div>
-                                   
-                                </div>
-
-        
-      
+        <br/><br/><br/>
+          <div>
+            <div class="life-container" id="life_container">
+                <!--<div>
+                    <div class="life-item"></div>
+                    <div class="life-item"></div>
+                    <div class="life-item"></div>
+                </div>
+                <div class="clear">
+                    <div class="life-item"></div>
+                    <div class="life-item"></div>
+                    <div class="life-item"></div>
+                </div>-->
+            </div>
+           
+        </div>
     </div>
+     <br/><br/><br/>
     <footer class="article-footer">
       <a data-url="http://stagebo.github.io/2017/06/06/U-R-MY-ONE-U-R-MY-ALL/" data-id="cj3lkt1y30000ds7t3fhs6u0n" class="article-share-link">Partager</a>
       
