@@ -22,7 +22,112 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
-  
+    <!--jquery lib-->
+    <script src="../../../../Plugins/JQuery/jquery-1.8.2.min.js"></script>
+    <!--miniui css&js lib-->
+    <link href="../../../../Plugins/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+    <script src="../../../../Plugins/MiniUI/miniui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            function init() {
+                var date = new Date();
+                var bir = new Date('1994-3-23');
+				var theDay=new Date('2017-6-6');
+                var y = date.getYear(), m = date.getMonth();
+                
+                var yy = bir.getYear(), mm = bir.getMonth();
+               
+			    var yyy=theDay.getYear(),mmm=theDay.getMonth();
+                var last = 12 * (yyy - yy) + mmm - mm;
+				var sumNow = 12 * (y - yyy) + m - mmm;
+				
+                var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>', ' <div class="life-item_ff"></div>'];
+                var index = 1;
+                for (var j = 0; j < 30; j++) {
+                    var row = ' <div class="clear">';
+                    for (var i = 0; i < 30; i++) {
+                        var item = index < sum ? items[0] : items[1];
+                        row += item;
+                        index++;
+                    }
+                    row += '</div>';
+                    $('div#life_container').append(row);
+                }
+
+            }
+            init();
+        });
+
+        function changed() {
+            $('div#life_container').html('');
+            var date = new Date();
+			var theDay = new Date('2017-6-6');
+            var bir = mini.get('date_picker').getValue();
+			
+            var yyy = date.getYear(), mmm = date.getMonth();
+          
+		    var yy = theDay.getYear(),mm=theDay.getMonth();
+		  
+            var y = bir.getYear(), m = bir.getMonth();
+            
+            var sum = 12 * (yy - y) + mm - m;
+			var sum2 = 12 * (yyy - y) + mmm - m;
+            var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+            var index = 1;
+            for (var j = 0; j < 30; j++) {
+                var row = ' <div class="clear">';
+                for (var i = 0; i < 30; i++) {
+                    var item = index < sum ? items[0] : items[1];
+					if(index < sum){
+						item=items[0];
+					}else if(index <sum2){
+						item=items[1];
+					}else{
+						item=items[2];
+					}
+                    row += item;
+                    index++;
+                }
+                row += '</div>';
+                $('div#life_container').append(row);
+            }
+        }
+
+    </script>
+    <style type="text/css">
+	   div.life-item_p {
+            float: left;
+            background-color: gray;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+        div.life-item_f {
+            float: left;
+            background-color: yellow;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+		
+		div.life-item_ff {
+            float: left;
+            background-color: green;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+       
+        div.clear {
+            clear: both;
+        }
+        div#life_container {
+            margin-left:160px;
+        }
+    </style>
 
 </head>
 
@@ -81,7 +186,22 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
+      <div>
+                                    <div class="life-container" id="life_container">
+                                        <!--<div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                        </div>
+                                        <div class="clear">
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                        </div>-->
+                                    </div>
+                                   
+                                </div>
+
         
       
     </div>
