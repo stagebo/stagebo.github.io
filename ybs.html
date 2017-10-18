@@ -109,8 +109,8 @@
                 }
                 var userid = userInfo["id"];
 
-                var url = 'https://api.yiboshi.com/api/study/student/usercenter/exam'
-                + '?userId=200776&page=1&pageSize=10&examState=&bindType=2&trainingId=&examName=&psort=0';
+                var url = 'http://api.yiboshi.com/api/study/student/usercenter/exam'
+                + '?userId='+userid+'&page=1&pageSize=10&examState=&bindType=2&trainingId=&examName=&psort=0';
 
                 $.ajax({
                     url: url,
